@@ -9,7 +9,7 @@ const router = express.Router()
 const Func = require("../../middleware/routeFunctions")
 const Contact = require("../../models/external/Contact")
 const auth = require("../../middleware/auth")
-const transporter = require("../../middleware/mailer")
+// const transporter = require("../../middleware/mailer")
 
 /**
  * @desc When recieving a GET request for route, authentication checked, if passed then search
@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
   if (!name || !message || !email || !phone) {
     return res.status(400).json({ message: "Empty Fields!" })
   }
-  const mailData = {
+  /*const mailData = {
     from: process.env.EMAIL_USER,
     to: email,
     subject: "Thanks for contacting me!",
@@ -66,7 +66,7 @@ router.post("/", async (req, res) => {
     transporter.sendMail(secondMailOptions, (err, info) => {
       if (err) Func.serveErr(err, res)
     })
-  })
+  })*/
   const newContact = {
     name,
     message,

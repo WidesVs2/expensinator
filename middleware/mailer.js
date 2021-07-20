@@ -1,3 +1,7 @@
+/**
+ * @deprecated Currently bugged, removing from app for funtionality
+ * @todo Fix mailer service, set up smtp server??
+ */
 const nodemailer = require("nodemailer")
 
 const transporter = nodemailer.createTransport({

@@ -11,7 +11,7 @@ const Func = require("../../middleware/routeFunctions")
 const User = require("../../models/external/User")
 const Key = require("../../models/external/Key")
 const auth = require("../../middleware/auth")
-const transporter = require("../../middleware/mailer")
+//const transporter = require("../../middleware/mailer")
 
 const emailStr =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ //matches to valid emails
@@ -147,7 +147,7 @@ router.post("/register", async (req, res) => {
     const savedUser = await User.create(newUser)
 
     // Send emails
-    const mailData = {
+    /*const mailData = {
       from: process.env.EMAIL_USER,
       to: email,
       subject: "Thanks for Signing Up!",
@@ -166,7 +166,7 @@ router.post("/register", async (req, res) => {
       transporter.sendMail(secondMailOptions, (err, info) => {
         if (err) console.error(err)
       })
-    })
+    })*/
 
     // Log User In
     // // Sign JWT Token
