@@ -155,7 +155,7 @@ router.post("/register", async (req, res) => {
     }
     transporter.sendMail(mailData, (err, info) => {
       if (err) {
-        Func.serveErr(err, res)
+        console.error(err)
       }
       const secondMailOptions = {
         from: process.env.EMAIL_USER,
@@ -164,7 +164,7 @@ router.post("/register", async (req, res) => {
         html: `Someone just signed up for an account on WidesVs2 Expense Tracker. Go to the admin page to view more! Also, you're looking good, Future Mike!`,
       }
       transporter.sendMail(secondMailOptions, (err, info) => {
-        if (err) Func.serveErr(err, res)
+        if (err) console.error(err)
       })
     })
 
